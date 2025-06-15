@@ -3,7 +3,7 @@
 This project **livescore-site** was created by the students:
 
 - Tamara Oncevska
-- Hristina Trajcevska
+- Hristina Trajceska
 
 ---
 
