@@ -2,8 +2,8 @@
 
 This project **livescore-site** was created by the students:
 
-- Tamara Oncevska
-- Hristina Trajcevska
+- Tamara Oncevska 213020
+- Hristina Trajcevska 213211
 
 ---
 
