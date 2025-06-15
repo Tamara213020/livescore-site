@@ -8,7 +8,7 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('scores'); // This maps the /scores URL to the ScoresRoute
+  this.route('scores');
 });
 
 export default Router;

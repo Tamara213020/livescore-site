@@ -1,6 +1,13 @@
 # livescore-site
 
-This README outlines the details of collaborating on this Ember application.
+This project **livescore-site** was created by the students:
+
+- Tamara Oncevska
+- Hristina Trajcevska
+
+---
+
+This README outlines the details of collaborating on this Ember application.  
 A short introduction of this app could easily go here.
 
 ## Prerequisites
@@ -20,9 +27,20 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
-- `npm run start`
-- Visit your app at [http://localhost:4200](http://localhost:4200).
-- Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+Before starting the Ember app, you need to start the proxy server:
+
+- Run the proxy server with:
+  ```bash
+  node proxy-server/proxy-server.js
+- In a new terminal, start the Ember app with:
+  ```bash 
+  ember serve
+  ```
+Visit your app at [http://localhost:4200](http://localhost:4200).
+
+## Code Generators
+
+Make use of the many generators for code, try `ember help generate` for more details.
 
 ### Code Generators
 
