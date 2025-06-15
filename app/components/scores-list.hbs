@@ -1,0 +1,6 @@
+<!-- app/templates/components/scores-list.hbs -->
+<ul>
+  {{#each this.matches as |match|}}
+    <li>{{match.homeTeam.name}} vs {{match.awayTeam.name}} - {{match.score.fullTime.homeTeam}}:{{match.score.fullTime.awayTeam}}</li>
+  {{/each}}
+</ul>
