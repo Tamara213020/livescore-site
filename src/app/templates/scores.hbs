@@ -1,0 +1,67 @@
+<h2>Today's Football Scores</h2>
+
+{{#if this.model.matches.length}}
+  <div class="matches-container">
+    {{#each this.model.matches as |match|}}
+      <div class="match-card {{match.status}}">
+        <div class="competition">{{match.competition.name}}</div>
+        
+        <div class="match-time">
+          {{#if (eq match.status "IN_PLAY")}}
+            <span class="live-pulse"></span>
+            <span class="live-badge">LIVE</span>
+          {{/if}}
+          {{format-time match.startTime}}
+          {{#if (eq match.status "IN_PLAY")}}
+            <span class="viewers">{{format-number match.viewers}} watching</span>
+          {{/if}}
+        </div>
+
+        <div class="teams">
+          <span class="team home-team">
+            {{#if (and (eq match.status "FINISHED") (gt match.score.fullTime.homeTeam match.score.fullTime.awayTeam))}}
+              <span class="winner-indicator trophy-before">{{match.homeTeam.name}}</span>
+            {{else}}
+              {{match.homeTeam.name}}
+            {{/if}}
+          </span>
+
+          <div class="score-container">
+            {{#if (eq match.status "SCHEDULED")}}
+              <span class="score">vs</span>
+            {{else}}
+              <span class="score {{if (eq match.status "IN_PLAY") "live"}}">
+                <span class="{{if (and (eq match.status "FINISHED") (gt match.score.fullTime.homeTeam match.score.fullTime.awayTeam)) "winner-score"}}">
+                  {{match.score.fullTime.homeTeam}}
+                </span>
+                <span> - </span>
+                <span class="{{if (and (eq match.status "FINISHED") (lt match.score.fullTime.homeTeam match.score.fullTime.awayTeam)) "winner-score"}}">
+                  {{match.score.fullTime.awayTeam}}
+                </span>
+              </span>
+            {{/if}}
+          </div>
+
+          <span class="team away-team">
+            {{#if (and (eq match.status "FINISHED") (lt match.score.fullTime.homeTeam match.score.fullTime.awayTeam))}}
+              <span class="winner-indicator trophy-after">{{match.awayTeam.name}}</span>
+            {{else}}
+              {{match.awayTeam.name}}
+            {{/if}}
+          </span>
+        </div>
+
+        <div class="match-status status-{{if (eq match.status "IN_PLAY") "LIVE" (if (eq match.status "FINISHED") "FT" "UPCOMING")}}">
+          {{if (eq match.status "IN_PLAY") "LIVE" (if (eq match.status "FINISHED") "FT" "UPCOMING")}}
+          {{#if (and (eq match.status "FINISHED") (eq match.score.fullTime.homeTeam match.score.fullTime.awayTeam))}}
+            <span class="draw-indicator">DRAW</span>
+          {{/if}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+{{else}}
+  <div class="no-matches">
+    <p>No matches found</p>
+  </div>
+{{/if}}

@@ -1,0 +1,40 @@
+<div class="app-container">
+  <header>
+    <h1>Football Match Center</h1>
+    <div class="current-time">Current time: {{this.currentTime}}</div>
+    <nav class="match-nav">
+      <LinkTo @route="index" @query={{hash tab="all"}} class={{if (eq this.activeTab "all") "active"}}>
+        All Matches
+      </LinkTo>
+      <LinkTo @route="index" @query={{hash tab="live"}} class={{if (eq this.activeTab "live") "active"}}>
+        Live Matches
+      </LinkTo>
+      <LinkTo @route="index" @query={{hash tab="finished"}} class={{if (eq this.activeTab "finished") "active"}}>
+        Finished Matches
+      </LinkTo>
+      <LinkTo @route="index" @query={{hash tab="scheduled"}} class={{if (eq this.activeTab "scheduled") "active"}}>
+        Scheduled Matches
+      </LinkTo>
+    </nav>
+    
+    {{#if (or (eq this.activeTab "finished") (eq this.activeTab "scheduled") (eq this.activeTab "all"))}}
+      <div class="date-filter">
+        <label>Filter by date:</label>
+        <input 
+          type="date" 
+          value={{this.filterDate}} 
+          {{on "input" this.updateFilterDate}}
+        />
+        {{#if this.filterDate}}
+          <button class="clear-filter" {{on "click" this.clearFilter}}>
+            Clear Filter
+          </button>
+        {{/if}}
+      </div>
+    {{/if}}
+  </header>
+
+  <main>
+    {{outlet}}
+  </main>
+</div>
