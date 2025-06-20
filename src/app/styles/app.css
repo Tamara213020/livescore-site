@@ -119,7 +119,7 @@ header {
 }
 
 .match-card.FINISHED {
-  opacity: 0.9;
+  border-left: 4px solid var(--winner-gold);
 }
 
 .match-card.SCHEDULED {
@@ -213,7 +213,7 @@ header {
   font-size: 14px;
 }
 
-/* Modern status indicators */
+
 .match-status {
   font-size: 10px;
   padding: 2px 6px;
@@ -311,7 +311,7 @@ header {
   border-radius: 4px;
   margin-left: 6px;
 }
-/* Add to your existing CSS */
+
 .winner-indicator {
   position: relative;
   display: inline-block;
@@ -349,7 +349,6 @@ header {
   animation: trophy-bounce 1s infinite;
 }
 
-/* Score Animations */
 @keyframes pulse-gold {
   0% { opacity: 0.8; transform: scale(1); }
   70% { opacity: 0; transform: scale(1.4); }
@@ -372,7 +371,7 @@ header {
   animation: pulse-gold 1.5s infinite;
 }
 
-/* Match Card Structure */
+
 .match-card {
   position: relative;
   background: var(--card-bg);

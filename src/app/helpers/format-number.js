@@ -1,4 +1,3 @@
-// format-number.js
 import { helper } from '@ember/component/helper';
 
 export function formatNumber([number]) {

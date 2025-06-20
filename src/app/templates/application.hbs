@@ -2,28 +2,30 @@
   <header>
     <h1>Football Match Center</h1>
     <div class="current-time">Current time: {{this.currentTime}}</div>
+
     <nav class="match-nav">
-      <LinkTo @route="index" @query={{hash tab="all"}} class={{if (eq this.activeTab "all") "active"}}>
+      <LinkTo @route="index" @query={{hash tab="all"}} class={{if (eq this.model.tab "all") "active"}}>
         All Matches
       </LinkTo>
-      <LinkTo @route="index" @query={{hash tab="live"}} class={{if (eq this.activeTab "live") "active"}}>
+      <LinkTo @route="index" @query={{hash tab="live"}} class={{if (eq this.model.tab "live") "active"}}>
         Live Matches
       </LinkTo>
-      <LinkTo @route="index" @query={{hash tab="finished"}} class={{if (eq this.activeTab "finished") "active"}}>
+      <LinkTo @route="index" @query={{hash tab="finished"}} class={{if (eq this.model.tab "finished") "active"}}>
         Finished Matches
       </LinkTo>
-      <LinkTo @route="index" @query={{hash tab="scheduled"}} class={{if (eq this.activeTab "scheduled") "active"}}>
+      <LinkTo @route="index" @query={{hash tab="scheduled"}} class={{if (eq this.model.tab "scheduled") "active"}}>
         Scheduled Matches
       </LinkTo>
     </nav>
-    
-    {{#if (or (eq this.activeTab "finished") (eq this.activeTab "scheduled") (eq this.activeTab "all"))}}
+
+    {{#if (not (eq this.activeTab "live"))}}
       <div class="date-filter">
-        <label>Filter by date:</label>
-        <input 
-          type="date" 
-          value={{this.filterDate}} 
-          {{on "input" this.updateFilterDate}}
+        <label for="date">Filter by date:</label>
+        <input
+          id="date"
+          type="date"
+          value={{this.filterDate}}
+          {{on "change" this.updateFilterDate}}
         />
         {{#if this.filterDate}}
           <button class="clear-filter" {{on "click" this.clearFilter}}>

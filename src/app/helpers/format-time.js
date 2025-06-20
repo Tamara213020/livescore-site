@@ -1,4 +1,3 @@
-// format-time.js
 import { helper } from '@ember/component/helper';
 
 export function formatTime([date, options]) {

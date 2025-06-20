@@ -35,7 +35,7 @@
 //   async getScores() {
 //     try {
 //       const today = new Date().toISOString().split('T')[0];
-//       const response = await fetch(`http://localhost:3000/proxy/https://api.football-data.org/v4/matches?dateFrom=${today}&dateTo=${today}`);
+//   const response = await fetch(`http://localhost:3000/proxy/https://api.football-data.org/v4/matches?dateFrom=${today}&dateTo=${today}`);
 
 //       if (!response.ok) throw new Error('Failed to fetch scores');
 
